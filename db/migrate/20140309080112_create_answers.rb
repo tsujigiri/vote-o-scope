@@ -4,6 +4,7 @@ class CreateAnswers < ActiveRecord::Migration
       t.integer :party_id
       t.integer :question_id
       t.integer :answer, default: 0, null: false
+      t.text :reasoning
     end
   end
 end

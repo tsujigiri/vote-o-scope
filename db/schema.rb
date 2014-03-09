@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20140309105355) do
     t.integer "party_id"
     t.integer "question_id"
     t.integer "answer",      default: 0, null: false
+    t.text    "reasoning"
   end
 
   create_table "parties", force: true do |t|

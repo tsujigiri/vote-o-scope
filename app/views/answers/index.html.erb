@@ -1,0 +1,12 @@
+<h1><%= Answer.model_name.plural %></h1>
+<table>
+  <% @answers.each do |answer| %>
+    <tr>
+      <td><%= answer.answer %></td>
+      <td>
+        <%= link_to t('edit'), edit_answer_path(answer) %>
+        <%= link_to t('destroy'), answer_path(answer), method: :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>

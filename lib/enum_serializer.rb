@@ -10,7 +10,7 @@ class EnumSerializer
   end
 
   def dump(value)
-    index = enum.find_index(value)
+    index = enum.find_index(value.to_sym)
     raise ValueInvalid if index.nil?
     index
   end

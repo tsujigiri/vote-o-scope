@@ -1,0 +1,19 @@
+<%= form_for @answer do |q| %>
+  <%= q.label :question %>
+  <br />
+  <%= q.select :party, options_for_answer_question %>
+  <br />
+  <%= q.label :party %>
+  <br />
+  <%= q.select :party, options_for_answer_party %>
+  <br />
+  <%= q.label :answer %>
+  <br />
+  <%= q.select :answer, options_for_answer_answer %>
+  <br />
+  <%= q.label :reasoning %>
+  <br />
+  <%= q.text_area :reasoning %>
+  <br />
+  <%= q.submit %>
+<% end %>

@@ -6,3 +6,13 @@ en:
       title: 'New Question'
     edit:
       title: 'Edit Question'
+  answers:
+    new:
+      title: 'New Answer'
+    edit:
+      title: 'Edit Answer'
+  parties:
+    new:
+      title: 'New Party'
+    edit:
+      title: 'Edit Party'

@@ -6,5 +6,6 @@ class Answer < ActiveRecord::Base
   belongs_to :party
   belongs_to :question
 
-  serialize :answer, EnumSerializer.new(:not_answered, :yes, :no)
+  ANSWERS = [:not_answered, :yes, :no]
+  serialize :answer, EnumSerializer.new(ANSWERS)
 end
