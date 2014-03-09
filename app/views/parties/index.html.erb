@@ -1,0 +1,12 @@
+<h1><%= Party.model_name.plural %></h1>
+<table>
+  <% @parties.each do |party| %>
+    <tr>
+      <td><%= party.name %></td>
+      <td>
+        <%= link_to t('edit'), edit_party_path(party) %>
+        <%= link_to t('destroy'), party_path(party), method: :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>

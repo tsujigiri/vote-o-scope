@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :party do
-    name "MyString"
+    name "ABC"
   end
 end
