@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :question do
-    short "MyString"
-    long "MyText"
+    short "Should air be taxed?"
+    long "No, really! Should there be a tax on the air you breath?"
   end
 end

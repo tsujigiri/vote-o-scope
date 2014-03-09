@@ -21,5 +21,8 @@ module VoteOScope
     # config.i18n.default_locale = :de
 
     config.autoload_paths << Rails.root.join('lib')
+
+    # Don't load all the helpers all the time
+    config.action_controller.include_all_helpers = false
   end
 end

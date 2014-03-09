@@ -1,0 +1,12 @@
+<h1><%= Question.model_name.plural %></h1>
+<table>
+  <% @questions.each do |question| %>
+    <tr>
+      <td><%= question.short %></td>
+      <td>
+        <%= link_to t('edit'), edit_question_path(question) %>
+        <%= link_to t('destroy'), question_path(question), method: :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>
