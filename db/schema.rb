@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140309080112) do
+ActiveRecord::Schema.define(version: 20140309105355) do
 
   create_table "answers", force: true do |t|
     t.integer "party_id"
@@ -27,5 +27,15 @@ ActiveRecord::Schema.define(version: 20140309080112) do
     t.string "short"
     t.text   "long"
   end
+
+  create_table "users", force: true do |t|
+    t.string  "email",                default: "", null: false
+    t.string  "encrypted_password",   default: "", null: false
+    t.string  "authentication_token"
+    t.integer "party_id"
+  end
+
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
