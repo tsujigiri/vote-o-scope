@@ -6,9 +6,11 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'devise'
 gem 'cancancan'
+gem 'acts_as_list'
 
-group :development, :test do
+group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'debugger'
+  gem 'capybara-webkit'
 end
