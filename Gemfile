@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'cancancan'
 gem 'acts_as_list'
+gem 'handlebars_assets'
 
 group :test do
   gem 'rspec-rails'

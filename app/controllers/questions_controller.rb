@@ -5,7 +5,6 @@ class QuestionsController < ApplicationController
   end
 
   def answer
-    @questions = Question.order(:position).to_a
   end
 
   def new

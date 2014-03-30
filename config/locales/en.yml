@@ -1,10 +1,10 @@
 en:
   answers:
     answers:
-      no: No
-      not_answered: Not answered
+      disagree: 'I disagree'
       skip: Skip
-      yes: Yes
+      skipped: Not answered
+      agree: 'I agree'
     edit:
       title: 'Edit Answer'
     new:

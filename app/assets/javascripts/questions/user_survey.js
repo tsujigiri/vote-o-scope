@@ -1,22 +1,38 @@
 $(function () {
   var currentQuestionIndex = 0;
-  var $short = $('#question-short');
-  var $long = $('#question-long');
+
+  var updateContent = function (newContent) {
+	$('#container').html(newContent);
+  };
+
+  var answerQuestion = function (e) {
+	e.preventDefault();
+	storeAnswer();
+	showNextQuestion(e);
+  }
+
+  var renderQuestion = function (q) {
+	$question = $(HandlebarsTemplates['questions/show'](q));
+	$question.find('.answer').click(answerQuestion);
+	updateContent($question);
+  };
 
   var showNextQuestion = function () {
 	var nextQuestion = window.VoteOScope.questions[currentQuestionIndex+1];
 	if (nextQuestion) {
-	  $short.text(nextQuestion.short);
-	  $long.text(nextQuestion.long);
-	  currentQuestionIndex = nextQuestion.id;
+	  renderQuestion(nextQuestion);
+	  currentQuestionIndex = currentQuestionIndex+1;
 	} else {
-	  renderResult();
+	  showResults();
 	}
   }
 
-  var renderResult = function () {
-	var topList = renderTopList();
-	$('#container').html(topList);
+
+  var showResults = function () {
+	context = {
+	  parties: window.VoteOScope.parties,
+	}
+	updateContent(HandlebarsTemplates['results/top_list'](context));
   };
 
   var renderTopList = function () {
@@ -57,10 +73,8 @@ $(function () {
 	window.VoteOScope.userAnswers[questionId] = answer;
   }
 
-  $('.answer').click(function (e) {
-	storeAnswer();
-	showNextQuestion(e);
-  });
+  renderQuestion(window.VoteOScope.questions[0]);
+
 
   $.getJSON('/parties', function (json) {
 	window.VoteOScope.parties = json;
