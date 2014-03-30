@@ -33,6 +33,7 @@ class Ability
       can :manage, :all
     elsif user.guest?
       can :read, :all
+      can :answer, Question
     end
   end
 end

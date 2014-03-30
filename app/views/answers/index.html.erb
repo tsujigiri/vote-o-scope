@@ -1,5 +1,7 @@
 <h1><%= Answer.model_name.plural %></h1>
-<%= link_to t('.add_answer'), new_answer_path %>
+<% if can?(:manage, Answer) %>
+  <%= link_to t('.add_answer'), new_answer_path %>
+<% end %>
 <table>
   <% @answers.each do |answer| %>
     <tr>

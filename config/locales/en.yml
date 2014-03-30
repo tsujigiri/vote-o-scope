@@ -1,18 +1,23 @@
 en:
-  destroy: 'delete'
-  edit: 'edit'
-  questions:
-    new:
-      title: 'New Question'
-    edit:
-      title: 'Edit Question'
   answers:
-    new:
-      title: 'New Answer'
+    answers:
+      no: No
+      not_answered: Not answered
+      skip: Skip
+      yes: Yes
     edit:
       title: 'Edit Answer'
-  parties:
     new:
-      title: 'New Party'
+      title: 'New Answer'
+  destroy: 'delete'
+  edit: 'edit'
+  parties:
     edit:
       title: 'Edit Party'
+    new:
+      title: 'New Party'
+  questions:
+    edit:
+      title: 'Edit Question'
+    new:
+      title: 'New Question'

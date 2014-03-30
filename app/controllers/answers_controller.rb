@@ -1,5 +1,10 @@
 class AnswersController < ApplicationController
   load_and_authorize_resource
+  respond_to :json, only: :index
+
+  def index
+    respond_with(@answers)
+  end
 
   def new
     @answer = Answer.new
@@ -8,8 +13,13 @@ class AnswersController < ApplicationController
   def edit
   end
 
+  def create
+    @answer = Answer.create(answer_params)
+    respond_with @answer, location: answers_path
+  end
+
   def update
-    @answer.update(answer_attributes)
+    @answer.update(answer_params)
     respond_with @answer, location: answers_path
   end
 
@@ -20,8 +30,7 @@ class AnswersController < ApplicationController
 
   private
 
-  def answer_attributes
+  def answer_params
     params.require(:answer).permit!
   end
-
 end

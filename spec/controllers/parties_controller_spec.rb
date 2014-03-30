@@ -13,11 +13,16 @@ describe PartiesController do
     end
 
     describe 'GET #index' do
-
       it 'loads all the parties' do
         get :index
         expect(response).to be_success
         expect(assigns[:parties]).to eq(Party.all)
+      end
+
+      it 'renders JSON' do
+        get :index, format: :json
+        expect(response).to be_success
+        expect(JSON.load(response.body)).to eq([JSON.load(party.to_json)])
       end
     end
 

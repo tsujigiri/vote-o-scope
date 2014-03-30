@@ -1,11 +1,11 @@
 <%= form_for @answer do |q| %>
-  <%= q.label :question %>
+  <%= q.label :question_id %>
   <br />
-  <%= q.select :party, options_for_answer_question %>
+  <%= q.select :question_id, options_for_answer_question %>
   <br />
-  <%= q.label :party %>
+  <%= q.label :party_id %>
   <br />
-  <%= q.select :party, options_for_answer_party %>
+  <%= q.select :party_id, options_for_answer_party %>
   <br />
   <%= q.label :answer %>
   <br />

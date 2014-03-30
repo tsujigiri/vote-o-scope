@@ -1,6 +1,13 @@
 class QuestionsController < ApplicationController
   load_and_authorize_resource
 
+  def index
+  end
+
+  def answer
+    @questions = Question.order(:position).to_a
+  end
+
   def new
     @question = Question.new
   end
@@ -8,8 +15,13 @@ class QuestionsController < ApplicationController
   def edit
   end
 
+  def create
+    @question.save
+    respond_with @question, location: questions_path
+  end
+
   def update
-    @question.update(question_attributes)
+    @question.update(question_params)
     respond_with @question, location: questions_path
   end
 
@@ -20,7 +32,7 @@ class QuestionsController < ApplicationController
 
   private
 
-  def question_attributes
+  def question_params
     params.require(:question).permit!
   end
 end

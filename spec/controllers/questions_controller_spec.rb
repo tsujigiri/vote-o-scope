@@ -54,5 +54,24 @@ describe QuestionsController do
         expect(response).to redirect_to(questions_path)
       end
     end
+
+    describe 'POST #create' do
+      it 'creates a question' do
+        expect {
+          post :create, question: { short: 'Should foo?', long: 'Should foo really?' }
+        }.to change(Question, :count).by(1)
+        expect(response).to redirect_to(questions_path)
+      end
+    end
+  end
+
+  context 'as a user' do
+    describe 'GET #answer' do
+      it 'shows the first question' do
+        get :answer
+        expect(response).to be_success
+        expect(assigns[:questions]).to eq(Question.order(:position))
+      end
+    end
   end
 end

@@ -1,5 +1,6 @@
 require 'spec_helper'
 
 describe Question do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let!(:question1) { FactoryGirl.create(:question) }
+  let!(:question2) { FactoryGirl.create(:question) }
 end

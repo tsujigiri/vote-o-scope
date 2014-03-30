@@ -1,0 +1,19 @@
+<div id="container">
+  <% content_for :head do %>
+    <%= javascript_include_tag 'user_survey' %>
+<% end %>
+
+  <h1 id="question-short"><%= @questions.first.short %></h1>
+  <p id="question-long"><%= @questions.first.long %></p>
+  <p>
+  <% %w(yes no skip).each do |answer| %>
+    <%= link_to t("answers.answers.#{answer}"), "##{answer}", class: 'answer', 'data-question-id' => @questions.first.id %>
+<% end %>
+  </p>
+</div>
+
+<script>
+window.VoteOScope = window.VoteOScope || {};
+window.VoteOScope.questions = JSON.parse('<%= raw(@questions.to_json(only: [:id, :short, :long])) %>');
+window.VoteOScope.userAnswers = {};
+</script>

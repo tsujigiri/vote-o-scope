@@ -1,5 +1,10 @@
 class PartiesController < ApplicationController
   load_and_authorize_resource
+  respond_to :json, only: :index
+
+  def index
+    respond_with @parties
+  end
 
   def new
     @party = Party.new
@@ -9,7 +14,7 @@ class PartiesController < ApplicationController
   end
 
   def update
-    @party.update(party_attributes)
+    @party.update(party_params)
     respond_with @party, location: parties_path
   end
 
@@ -20,7 +25,7 @@ class PartiesController < ApplicationController
 
   private
 
-  def party_attributes
+  def party_params
     params.require(:party).permit!
   end
 end
