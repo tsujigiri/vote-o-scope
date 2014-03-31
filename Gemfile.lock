@@ -10,6 +10,8 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
+    active_model_serializers (0.8.1)
+      activemodel (>= 3.0)
     activemodel (4.0.3)
       activesupport (= 4.0.3)
       builder (~> 3.1.0)
@@ -135,6 +137,7 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    underscore-rails (1.6.0)
     warden (1.2.3)
       rack (>= 1.0)
     xpath (2.0.0)
@@ -144,6 +147,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
   acts_as_list
   cancancan
   capybara-webkit
@@ -156,3 +160,4 @@ DEPENDENCIES
   rspec-rails
   sqlite3
   uglifier (>= 1.3.0)
+  underscore-rails

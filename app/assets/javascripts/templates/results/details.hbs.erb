@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      {{#each parties}}
+      <th>{{name}}</th>
+      {{/each}}
+    </tr>
+  </thead>
+  <tbody>
+  {{#each questions}}
+  <tr>
+    <td>{{short}}</td>
+    {{#each partiesAnswers}}
+    <td>{{this}}</td>
+    {{/each}}
+  </tr>
+  {{/each}}
+  </tbody>
+</table>

@@ -1,10 +1,11 @@
 en:
   answers:
     answers:
-      disagree: 'I disagree'
-      skip: Skip
-      skipped: Not answered
-      agree: 'I agree'
+      agree: 'agree'
+      disagree: 'disagree'
+      neutral: 'neutral'
+      skip: 'Skip'
+      skipped: 'Not answered'
     edit:
       title: 'Edit Answer'
     new:

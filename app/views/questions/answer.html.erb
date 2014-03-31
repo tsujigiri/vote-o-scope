@@ -3,5 +3,5 @@
 <script>
 window.VoteOScope = window.VoteOScope || {};
 window.VoteOScope.questions = JSON.parse('<%= raw(@questions.to_json(only: [:id, :short, :long])) %>');
-window.VoteOScope.userAnswers = {};
+window.VoteOScope.userAnswers = [];
 </script>
