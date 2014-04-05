@@ -1,11 +1,13 @@
 <h1><%= Answer.model_name.plural %></h1>
-<% if can?(:manage, Answer) %>
-  <%= link_to t('.add_answer'), new_answer_path %>
-<% end %>
+<%= link_to t('.add_answer'), new_answer_path %>
+<%= link_to t('back'), user_root_path %>
 <table>
   <% @answers.each do |answer| %>
     <tr>
+      <td><%= answer.party.name %></td>
+      <td><%= answer.question.short %></td>
       <td><%= answer.answer %></td>
+      <td><%= answer.reasoning %></td>
       <td>
         <%= link_to t('edit'), edit_answer_path(answer) %>
         <%= link_to t('destroy'), answer_path(answer), method: :delete %>

@@ -64,14 +64,4 @@ describe QuestionsController do
       end
     end
   end
-
-  context 'as a user' do
-    describe 'GET #answer' do
-      it 'shows the first question' do
-        get :answer
-        expect(response).to be_success
-        expect(assigns[:questions]).to eq(Question.order(:position))
-      end
-    end
-  end
 end

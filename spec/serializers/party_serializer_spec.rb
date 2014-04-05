@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PartySerializer do
   let(:question) { FactoryGirl.create(:question) }
-  let(:answer) { FactoryGirl.create(:answer, question: question, answer: 'yes',
+  let(:answer) { FactoryGirl.create(:answer, question: question, answer: 'agree',
                                     reasoning: 'Because!') }
   let(:party) { FactoryGirl.create(:party, answers: [answer]) }
 
@@ -13,7 +13,7 @@ describe PartySerializer do
       'id'          => answer.id,
       'party_id'    => party.id,
       'question_id' => question.id,
-      'answer'      => 'yes',
+      'answer'      => 'agree',
       'reasoning'   => 'Because!'
     }])
   end

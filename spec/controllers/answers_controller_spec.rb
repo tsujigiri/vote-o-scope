@@ -46,9 +46,9 @@ describe AnswersController do
 
     describe 'PUT #update' do
       it 'updates a answer' do
-        post :update, id: answer.id, answer: { answer: :yes }
+        post :update, id: answer.id, answer: { answer: :agree }
         answer.reload
-        expect(answer.answer).to eq(:yes)
+        expect(answer.answer).to eq(:agree)
         expect(response).to redirect_to(answers_path)
       end
     end
@@ -66,7 +66,7 @@ describe AnswersController do
       it 'creates an answer' do
         expect {
           post :create, answer: { party_id: party.id, question_id: question.id,
-                                  answer: 'yes', reasoning: 'Bla bla!' }
+                                  answer: 'agree', reasoning: 'Bla bla!' }
         }.to change(Answer, :count).by(1)
       end
     end

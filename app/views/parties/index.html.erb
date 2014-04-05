@@ -1,5 +1,6 @@
 <h1><%= Party.model_name.plural %></h1>
 <%= link_to t('.add_party'), new_party_path %>
+<%= link_to t('back'), user_root_path %>
 <table>
   <% @parties.each do |party| %>
     <tr>

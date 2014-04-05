@@ -6,6 +6,6 @@ class Answer < ActiveRecord::Base
   validates :question, presence: true
   validates :answer, presence: true
 
-  ANSWERS = [:yes, :no, :neutral]
+  ANSWERS = [:agree, :disagree, :neutral]
   serialize :answer, EnumSerializer.new(ANSWERS)
 end

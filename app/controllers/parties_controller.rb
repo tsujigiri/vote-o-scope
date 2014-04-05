@@ -13,6 +13,11 @@ class PartiesController < ApplicationController
   def edit
   end
 
+  def create
+    @party.save
+    respond_with @party, location: parties_path
+  end
+
   def update
     @party.update(party_params)
     respond_with @party, location: parties_path

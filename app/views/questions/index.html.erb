@@ -1,5 +1,6 @@
 <h1><%= Question.model_name.plural %></h1>
 <%= link_to t('.add_question'), new_question_path %>
+<%= link_to t('back'), user_root_path %>
 <table>
   <% @questions.each do |question| %>
     <tr>

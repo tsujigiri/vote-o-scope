@@ -22,7 +22,8 @@ describe PartiesController do
       it 'renders JSON' do
         get :index, format: :json
         expect(response).to be_success
-        expect(JSON.load(response.body)).to eq([JSON.load(party.to_json)])
+        expect(JSON.load(response.body)).to eq(
+          [{"id"=>1, "name"=>"ABC", "answers"=>[]}])
       end
     end
 
@@ -39,6 +40,14 @@ describe PartiesController do
         get :new
         expect(response).to be_success
         expect(assigns[:party]).to be_new_record
+      end
+    end
+
+    describe 'POST #create' do
+      it 'creates a party' do
+        expect {
+          post :create, party: { name: 'XYZ' }
+        }.to change(Party, :count).by(1)
       end
     end
 
