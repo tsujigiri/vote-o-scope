@@ -6,5 +6,5 @@ VoteOScope::Application.routes.draw do
   resources :answers
   resources :parties
   resources :landing, only: [:index]
-  root 'landing#index'
+  root 'questions#answer'
 end
