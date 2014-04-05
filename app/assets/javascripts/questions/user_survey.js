@@ -40,9 +40,14 @@
 
   var topList = function () {
     var partiesWithConensus = _.map(window.VoteOScope.parties, function (party) {
-      party.conensusPercentage = consensusPercentage(party);
+      party = _.clone(party);
+      party.consensusPercentage = consensusPercentage(party);
       return party;
     });
+    partiesWithConensus = _.sortBy(partiesWithConensus, function (p) {
+      return p.consensusPercentage;
+    });
+    partiesWithConensus = partiesWithConensus.reverse();
     var context = {
       parties: partiesWithConensus,
     }
@@ -80,12 +85,12 @@
 
   var consensusPercentage = function (party) {
     var consensus = _.map(window.VoteOScope.userAnswers, function (answer, i) {
-      return party.answers[i] == answer;
+      return party.answers[i].answer == answer;
     });
     var total = _.reduce(consensus, function (memo, item) {
       return memo + { true: 1, false: 0 }[item];
     }, 0);
-    return total / consensus.length;
+    return total / consensus.length * 100;
   };
 
   $(function () {
