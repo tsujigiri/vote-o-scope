@@ -39,17 +39,15 @@
   };
 
   var topList = function () {
-    var partiesWithConensus = _.map(window.VoteOScope.parties, function (party) {
+    var parties = _.map(window.VoteOScope.parties, function (party) {
       party = _.clone(party);
       party.consensusPercentage = consensusPercentage(party);
       return party;
     });
-    partiesWithConensus = _.sortBy(partiesWithConensus, function (p) {
-      return p.consensusPercentage;
-    });
-    partiesWithConensus = partiesWithConensus.reverse();
+    parties = _.sortBy(parties, function (p) { return p.consensusPercentage; });
+    parties = parties.reverse();
     var context = {
-      parties: partiesWithConensus,
+      parties: parties,
     }
     return HandlebarsTemplates['results/top_list'](context);
   };
