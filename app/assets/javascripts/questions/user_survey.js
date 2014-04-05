@@ -50,18 +50,28 @@
   };
 
   var detailedResults = function () {
-    var questions = _.map(window.VoteOScope.questions, function (q) {
-      q.partiesAnswers = _.map(window.VoteOScope.parties, function (p) {
-        var answer = _.first(_.where(p.answers, { question_id: q.id }));
-        return (answer ? answer.answer : 'neutral');
-      });
-      return q;
-    });
     var context = {
       parties: window.VoteOScope.parties,
-      questions: questions,
+      questions: _.map(window.VoteOScope.questions, questionWithPartiesAnswers),
     }
     return HandlebarsTemplates['results/details'](context);
+  };
+
+  var questionWithPartiesAnswers = function (question, i) {
+    question = _.clone(question);
+    question.partiesAnswers = _.map(window.VoteOScope.parties, function (party) {
+      var partyAnswer = _.clone(_.first(_.where(party.answers, { question_id: question.id })));
+      var userAnswer = window.VoteOScope.userAnswers[i];
+      if (userAnswer && userAnswer == partyAnswer.answer) {
+        partyAnswer.matchClass = 'match';
+      } else if (userAnswer && userAnswer != partyAnswer.answer) {
+        partyAnswer.matchClass = 'no-match';
+      } else {
+        partyAnswer.matchClass = 'skipped';
+      }
+      return partyAnswer;
+    });
+    return question;
   };
 
   var storeAnswer = function (answer) {
