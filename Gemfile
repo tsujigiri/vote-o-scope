@@ -16,4 +16,5 @@ group :test do
   gem 'factory_girl_rails'
   gem 'debugger'
   gem 'capybara-webkit'
+  gem 'database_cleaner'
 end

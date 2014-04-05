@@ -46,6 +46,7 @@ GEM
       capybara (>= 2.0.2, < 2.2.0)
       json
     columnize (0.3.6)
+    database_cleaner (1.2.0)
     debugger (1.6.6)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
@@ -151,6 +152,7 @@ DEPENDENCIES
   acts_as_list
   cancancan
   capybara-webkit
+  database_cleaner
   debugger
   devise
   factory_girl_rails
