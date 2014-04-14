@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :question do
-    short "Should air be taxed?"
-    long "No, really! Should there be a tax on the air you breath?"
+    sequence(:short) {|i| "Topic ##{i}" }
+    sequence(:long) {|i| "Statement ##{i}" }
   end
 end

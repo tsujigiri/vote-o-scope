@@ -41,7 +41,7 @@
   var topList = function () {
     var parties = _.map(window.VoteOScope.parties, function (party) {
       party = _.clone(party);
-      party.consensusPercentage = consensusPercentage(party);
+      party.consensusPercentage = parseInt(consensusPercentage(party), 10);
       return party;
     });
     parties = _.sortBy(parties, function (p) { return p.consensusPercentage; });
