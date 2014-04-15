@@ -14,4 +14,15 @@ describe Answer do
       answer.update(answer: :maybe)
     }.to raise_error(EnumSerializer::ValueInvalid)
   end
+
+  it 'ensures only one answer per question-party combination' do
+    party = FactoryGirl.create(:party)
+    question = FactoryGirl.create(:question)
+    expect {
+      FactoryGirl.create(:answer, party: party, question: question)
+      expect {
+        FactoryGirl.create(:answer, party: party, question: question)
+      }.to raise_error(ActiveRecord::RecordInvalid)
+    }.to change(Answer, :count).by(1)
+  end
 end

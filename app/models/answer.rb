@@ -4,6 +4,7 @@ class Answer < ActiveRecord::Base
 
   validates :party, presence: true
   validates :question, presence: true
+  validates_uniqueness_of :question, scope: :party
   validates :answer, presence: true
 
   ANSWERS = [:agree, :disagree, :neutral]
