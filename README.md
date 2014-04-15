@@ -21,4 +21,4 @@ be redirected to the dashboard where you can edit the content.
 
 ## Development
 
-To run the test, [phantomjs](http://phantomjs.org/) needs to be installed.
+To run the tests, [phantomjs](http://phantomjs.org/) needs to be installed.
