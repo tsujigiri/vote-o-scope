@@ -12,9 +12,13 @@ an overview of what party or representative matches best.
 
 ## Setup
 
-**tl/tr**: It's a Rails app, nothing special about it.
+At the moment, there is no CSS included. This is by intention as this
+way it's very easy to create a branch and add a layout for each site
+the app is to be integrated with. So, for now, you have to fork it and
+add a layout yourself
+([This might change in the future](https://github.com/tsujigiri/vote-o-scope/issues/3)).
 
-In order to get the it running, follow these steps.
+In order to get the app running, follow these steps.
 
 1. Decide for a database. Supported is anything ActiveRecord can handle.
    Copy one of the respective configuration files from
