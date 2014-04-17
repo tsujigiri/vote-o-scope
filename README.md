@@ -3,11 +3,11 @@
 Elevator pitch: It's a match-making machine for elections!
 
 Vote-o-Scope lets you assemble statements and collect positions to those
-statement from to-be-elected representatives and parties.
+statements from to-be-elected representatives or parties.
 
-Voters can then click through the statements themselves, put in their
-own positions by clicking *agree*, *disagree* or *neutral* and then see
-an overview of what party or representative matches best.
+Voters can then click through the statements, put in their own positions
+by clicking *agree*, *disagree* or *neutral* and then see an overview
+of what party or representative matches best.
 
 
 ## Setup
