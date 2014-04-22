@@ -4,7 +4,7 @@ en:
       agree: 'agree'
       disagree: 'disagree'
       neutral: 'neutral'
-      skip: 'Skip'
+      skip: 'skip'
       skipped: 'Not answered'
     edit:
       title: 'Edit Answer'
@@ -22,3 +22,6 @@ en:
       title: 'Edit Question'
     new:
       title: 'New Question'
+  results:
+    consensus: 'Consensus'
+    details: 'Detailed Results'

@@ -65,12 +65,12 @@
     question.partiesAnswers = _.map(window.VoteOScope.parties, function (party) {
       var partyAnswer = _.clone(_.first(_.where(party.answers, { question_id: question.id })));
       var userAnswer = window.VoteOScope.userAnswers[i];
-      if (userAnswer && userAnswer == partyAnswer.answer) {
+      if (userAnswer && userAnswer == 'neutral') {
+        partyAnswer.matchClass = 'neutral';
+      } else if (userAnswer && userAnswer == partyAnswer.answer) {
         partyAnswer.matchClass = 'match';
       } else if (userAnswer && userAnswer != partyAnswer.answer) {
         partyAnswer.matchClass = 'no-match';
-      } else {
-        partyAnswer.matchClass = 'skipped';
       }
       return partyAnswer;
     });

@@ -1,7 +1,9 @@
+<h1><%= I18n.t('results.consensus') %></h1>
 <table id="vote-o-scope-top-list">
   {{#each parties}}
   <tr>
     <td>{{name}}</td>
+    <td class="vote-o-scope-percentage-bar"><div style="width: {{consensusPercentage}}%;"></div></td>
     <td>{{consensusPercentage}} %</td>
   </tr>
   {{/each}}
