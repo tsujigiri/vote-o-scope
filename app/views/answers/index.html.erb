@@ -2,16 +2,23 @@
 <%= link_to t('.add_answer'), new_answer_path %>
 <%= link_to t('back'), user_root_path %>
 <table>
-  <% @answers.each do |answer| %>
-    <tr>
-      <td><%= answer.party.name %></td>
-      <td><%= answer.question.short %></td>
-      <td><%= answer.answer %></td>
-      <td><%= answer.reasoning %></td>
-      <td>
-        <%= link_to t('edit'), edit_answer_path(answer) %>
-        <%= link_to t('destroy'), answer_path(answer), method: :delete %>
-      </td>
-    </tr>
+  <thead>
+    <th><%= Question.model_name.singular %></th>
+    <th><%= t('answers.answers.agree') %></th>
+    <th><%= t('answers.answers.neutral') %></th>
+    <th><%= t('answers.answers.disagree') %></th>
+    <th><%= Answer.human_attribute_name(:reasoning) %></th>
+  </thead>
+  <% Party.all.each do |party| %>
+    <tr><td colspan="5" class="party-name"><%= party.name %></th></tr>
+    <%= @questions.each do |question| %>
+      <tr>
+        <td><%= question.short %></td>
+        <td><%= radio_button_tag :agree, false %></td>
+        <td><%= radio_button_tag :neutral, false %></td>
+        <td><%= radio_button_tag :disagree, false %></td>
+        <td><%= answer_reasoning_modal_link(party, question) %></td>
+      </tr>
+    <% end %>
   <% end %>
 </table>

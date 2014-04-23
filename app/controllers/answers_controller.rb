@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
   respond_to :json, only: :index
 
   def index
-    respond_with(@answers)
+    @questions = Question.all
   end
 
   def new

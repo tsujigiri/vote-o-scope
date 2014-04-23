@@ -10,4 +10,10 @@ module AnswersHelper
   def options_for_answer_question
     Question.all.map {|question| [question.short, question.id] }
   end
+
+  def answer_reasoning_modal_link(party, question)
+    answer = party.answers.where(question_id: question.id).first
+    css_class = (answer ? 'reasoning-present' : 'reasoning-absent')
+    link_to("reasoning", '#', class: css_class)
+  end
 end
