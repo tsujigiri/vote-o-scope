@@ -25,4 +25,18 @@ describe Answer do
       }.to raise_error(ActiveRecord::RecordInvalid)
     }.to change(Answer, :count).by(1)
   end
+
+  describe '#missing' do
+    it 'returns a list of new answers that have not yet been created' do
+      party1 = FactoryGirl.create(:party)
+      party2 = FactoryGirl.create(:party)
+      question1 = FactoryGirl.create(:question)
+      question2 = FactoryGirl.create(:question)
+      FactoryGirl.create(:answer, question: question1, party: party1)
+      FactoryGirl.create(:answer, question: question2, party: party2)
+      expect(Answer.missing.map {|a| [a.party_id, a.question_id] }).to match_array(
+        [[1,2], [2,1]]
+      )
+    end
+  end
 end

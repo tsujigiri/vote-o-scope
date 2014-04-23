@@ -1,0 +1,27 @@
+de:
+  answers:
+    answers:
+      agree: 'stimme zu'
+      disagree: 'stimme nicht zu'
+      neutral: 'neutral'
+      skip: 'überspringen'
+      skipped: 'übersprungen'
+    edit:
+      title: 'Antwort bearbeiten'
+    new:
+      title: 'Neue Antwort'
+  destroy: 'löschen'
+  edit: 'bearbeiten'
+  parties:
+    edit:
+      title: 'Partei bearbeiten'
+    new:
+      title: 'Neue Partei'
+  questions:
+    edit:
+      title: 'Frage bearbeiten'
+    new:
+      title: 'Neue Frage'
+  results:
+    consensus: 'Übereinstimmung'
+    details: 'Detailliertes Ergebnis'
