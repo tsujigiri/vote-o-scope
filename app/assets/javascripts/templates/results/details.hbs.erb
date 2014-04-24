@@ -13,7 +13,15 @@
   <tr>
     <td>{{short}}</td>
     {{#each partiesAnswers}}
-    <td class="{{matchClass}}">{{answer}}</td>
+    <td class="{{matchClass}}">
+      <a
+        href="#"
+        class="vote-o-scope-party-answer-link"
+        data-answer-id="{{id}}"
+        >
+        {{answer}}
+      </a>
+    </td>
     {{/each}}
   </tr>
   {{/each}}

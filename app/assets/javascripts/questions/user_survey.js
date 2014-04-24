@@ -55,12 +55,26 @@
   var detailedResults = function () {
     var context = {
       parties: window.VoteOScope.parties,
-      questions: _.map(window.VoteOScope.questions, questionWithPartiesAnswers),
+      questions: _.map(window.VoteOScope.questions, buildDetailedResultsContext),
     }
-    return HandlebarsTemplates['results/details'](context);
+    var $details = $(HandlebarsTemplates['results/details'](context));
+    $details.on('click', '.vote-o-scope-party-answer-link', showPartyReasoning);
+    return $details;
   };
 
-  var questionWithPartiesAnswers = function (question, i) {
+  var showPartyReasoning = function (e) {
+    e.preventDefault();
+    var answerId = $(e.target).attr('data-answer-id');
+    Modal.open({
+      ajaxContent: '/answers/' + answerId,
+      width: '50%', // Can be set to px, em, %, or whatever else is out there.
+      height: '50%',
+      //hideclose: true, // Hides the close-modal graphic
+      //closeAfter: 10 // Define this number in seconds.
+    });
+  }
+
+  var buildDetailedResultsContext = function (question, i) {
     question = _.clone(question);
     question.partiesAnswers = _.map(window.VoteOScope.parties, function (party) {
       var partyAnswer = _.clone(_.first(_.where(party.answers, { question_id: question.id })));

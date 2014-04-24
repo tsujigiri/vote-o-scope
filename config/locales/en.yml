@@ -4,6 +4,8 @@ en:
       agree: 'agree'
       disagree: 'disagree'
       neutral: 'neutral'
+      show:
+        party_says: '%{party} reasons:'
       skip: 'skip'
       skipped: 'Not answered'
     edit:

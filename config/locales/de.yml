@@ -4,6 +4,8 @@ de:
       agree: 'stimme zu'
       disagree: 'stimme nicht zu'
       neutral: 'neutral'
+      show:
+        party_says: '%{party} begründet:'
       skip: 'überspringen'
       skipped: 'übersprungen'
     edit:
