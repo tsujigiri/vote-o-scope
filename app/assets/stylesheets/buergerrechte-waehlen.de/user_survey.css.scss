@@ -3,14 +3,23 @@ $light-green: #D4E86F;
 $match-green: #EDFCA0;
 $no-match-red: #FCB5A0;
 $neutral-yellow: #FCF8A0;
+$grey: #444444;
 
 a.answer {
   margin-right: 2em;
   font-weight: bold;
+  font-size: large;
 }
 
 a.answer.skip {
   font-weight: normal;
+}
+
+#vote-o-scope-question-short {
+}
+
+#vote-o-scope-question-long {
+  font-size: large;
 }
 
 #vote-o-scope-detailed-results {
@@ -66,4 +75,8 @@ a.answer.skip {
     height: 1em;
     background-color: $match-green;
   }
+}
+
+a.vote-o-scope-party-answer-link {
+  color: $grey;
 }
