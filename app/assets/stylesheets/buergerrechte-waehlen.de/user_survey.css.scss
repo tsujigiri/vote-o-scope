@@ -69,6 +69,9 @@ a.answer.skip {
 
   .vote-o-scope-percentage-bar {
     width: 100%;
+	div {
+	  border: $grey 1px solid;
+	}
   }
 
   .vote-o-scope-percentage-bar > div {
