@@ -12,6 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'handlebars_assets'
 gem 'underscore-rails'
+gem 'sass-rails'
 
 # Authentification/authorization
 gem 'devise'
