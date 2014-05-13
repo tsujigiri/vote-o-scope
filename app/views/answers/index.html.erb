@@ -1,5 +1,4 @@
 <h1><%= Answer.model_name.plural %></h1>
-<%= link_to t('.add_answer'), new_answer_path %>
 <%= link_to t('back'), user_root_path %>
 <table id="answers">
   <thead>
@@ -12,7 +11,7 @@
   <tbody>
     <% Party.all.each do |party| %>
       <tr><td colspan="5" class="party-name"><%= party.name %></th></tr>
-      <%= @questions.each do |question| %>
+      <% @questions.each do |question| %>
         <tr>
           <td class="right"><%= question.short %></td>
           <td class="center"><%= radio_button_tag :agree, false %></td>
@@ -24,3 +23,9 @@
     <% end %>
   </tbody>
 </table>
+
+<div class="hidden">
+  <div id="party-reasoning-modal-content">
+    <%= t('answer.edit') %>
+  </div>
+</div>

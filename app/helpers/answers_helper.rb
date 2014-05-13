@@ -13,7 +13,8 @@ module AnswersHelper
 
   def answer_reasoning_modal_link(party, question)
     answer = party.answers.where(question_id: question.id).first
-    css_class = (answer ? 'reasoning-present' : 'reasoning-absent')
-    link_to("reasoning", '#', class: css_class)
+    html_id = 'party-reasoning-modal'
+    html_class = (answer ? 'reasoning-present' : 'reasoning-absent')
+    link_to("reasoning", '#', class: html_class, id: html_id)
   end
 end
