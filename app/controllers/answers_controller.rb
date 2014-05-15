@@ -5,37 +5,25 @@ class AnswersController < ApplicationController
   def index
     @parties = Party.all
     @questions = Question.all
-    @answers = Answer.all_with_missing.reduce({}) do |m,a|
-      m[[a.party_id, a.question_id]] = a
-      m
+    respond_to do |format|
+      format.html do
+        @answers = Answer.all_with_missing.reduce({}) do |m,a|
+          m[[a.party_id, a.question_id]] = a
+          m
+        end
+      end
+      format.json { render json: Answer.all_with_missing }
     end
-  end
-
-  def new
-    @answer = Answer.new
-  end
-
-  def edit
-  end
-
-  def create
-    @answer = Answer.create(answer_params)
-    respond_with @answer, location: answers_path
   end
 
   def update
     answers_params.keys.each do |key|
       _, party_id, _, question_id = key.split('_')
-      answer = Answer.find_or_initialize_by(question_id: question_id.to_i,
-                                            party_id: party_id.to_i)
+      answer = Answer.find_or_initialize_by(question_id: question_id,
+                                            party_id: party_id)
       answer.update!(answers_params[key])
     end
     redirect_to answers_path
-  end
-
-  def destroy
-    @answer.destroy
-    respond_with @answer, location: answers_path
   end
 
   private
