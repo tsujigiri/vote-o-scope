@@ -1,28 +1,40 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'admin' %>
+<% end %>
+
 <h1><%= Answer.model_name.plural %></h1>
 <%= link_to t('back'), user_root_path %>
-<table id="answers">
-  <thead>
-    <th><%= Question.model_name.singular %></th>
-    <th><%= t('answers.answers.agree') %></th>
-    <th><%= t('answers.answers.neutral') %></th>
-    <th><%= t('answers.answers.disagree') %></th>
-    <th><%= Answer.human_attribute_name(:reasoning) %></th>
-  </thead>
-  <tbody>
-    <% Party.all.each do |party| %>
-      <tr><td colspan="5" class="party-name"><%= party.name %></th></tr>
-      <% @questions.each do |question| %>
-        <tr>
-          <td class="right"><%= question.short %></td>
-          <td class="center"><%= radio_button_tag :agree, false %></td>
-          <td class="center"><%= radio_button_tag :neutral, false %></td>
-          <td class="center"><%= radio_button_tag :disagree, false %></td>
-          <td class="center"><%= answer_reasoning_modal_link(party, question) %></td>
-        </tr>
+<p>
+<%= form_tag answers_path, method: 'put' do %>
+  <table id="answers">
+    <thead>
+      <th><%= Question.model_name.singular %></th>
+      <th><%= t('answers.answers.agree') %></th>
+      <th><%= t('answers.answers.neutral') %></th>
+      <th><%= t('answers.answers.disagree') %></th>
+      <th><%= Answer.human_attribute_name(:reasoning) %></th>
+    </thead>
+    <tbody>
+      <% @parties.each do |party| %>
+        <tr><td colspan="5" class="party-name"><%= party.name %></th></tr>
+        <% @questions.each do |question| %>
+          <tr>
+            <td class="right"><%= question.short %></td>
+            <%= answer_radio_buttons(party, question) %>
+            <td class="center"><%= answer_reasoning_modal_link(party, question) %></td>
+          </tr>
+          <tr class="hidden">
+            <td colspan="5">
+              <%= answer_reasoning_textarea(party, question) %>
+            </td>
+          </tr>
+        <% end %>
       <% end %>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+  <%= submit_tag t('submit') %>
+<% end %>
+</p>
 
 <div class="hidden">
   <div id="party-reasoning-modal-content">

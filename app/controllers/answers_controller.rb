@@ -3,7 +3,12 @@ class AnswersController < ApplicationController
   respond_to :json, only: :index
 
   def index
+    @parties = Party.all
     @questions = Question.all
+    @answers = Answer.all_with_missing.reduce({}) do |m,a|
+      m[[a.party_id, a.question_id]] = a
+      m
+    end
   end
 
   def new
@@ -19,8 +24,13 @@ class AnswersController < ApplicationController
   end
 
   def update
-    @answer.update(answer_params)
-    respond_with @answer, location: answers_path
+    answers_params.keys.each do |key|
+      _, party_id, _, question_id = key.split('_')
+      answer = Answer.find_or_initialize_by(question_id: question_id.to_i,
+                                            party_id: party_id.to_i)
+      answer.update!(answers_params[key])
+    end
+    redirect_to answers_path
   end
 
   def destroy
@@ -30,7 +40,7 @@ class AnswersController < ApplicationController
 
   private
 
-  def answer_params
-    params.require(:answer).permit!
+  def answers_params
+    params.require(:answers).permit!
   end
 end

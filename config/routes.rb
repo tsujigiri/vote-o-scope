@@ -4,7 +4,9 @@ VoteOScope::Application.routes.draw do
   resources :questions do
     get :answer, on: :collection
   end
-  resources :answers
+  resources :answers do
+    put :update, on: :collection
+  end
   resources :parties
   resources :landing, only: [:index]
   root 'questions#answer'
