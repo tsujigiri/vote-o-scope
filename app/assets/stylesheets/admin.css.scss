@@ -1,0 +1,21 @@
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.party-name {
+  font-weight: bold;
+}
+
+table#answers {
+  a.reasoning-present {
+    color: #008000;
+  }
+
+  a.reasoning-absent {
+    color: #800000;
+  }
+}
