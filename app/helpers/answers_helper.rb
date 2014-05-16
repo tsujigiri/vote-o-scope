@@ -11,10 +11,14 @@ module AnswersHelper
     Question.all.map {|question| [question.short, question.id] }
   end
 
-  def answer_reasoning_modal_link(party, question)
-    answer = party.answers.where(question_id: question.id).first
+  def answer_reasoning_edit_link(party, question)
+    answer = answer(party, question)
     html_class = 'edit-reasoning '
-    html_class << (answer ? 'reasoning-present' : 'reasoning-absent')
+    if answer.try(:reasoning).present?
+      html_class << 'reasoning-present'
+    else
+      html_class << 'reasoning-absent'
+    end
     link_to("reasoning", '#', class: html_class)
   end
 
