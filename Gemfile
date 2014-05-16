@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 # Database adapters
-gem 'sqlite3'
-gem 'mysql2'
+gem 'sqlite3' unless ENV['CI']
+gem 'mysql2' unless ENV['CI']
 gem 'pg'
 
 gem 'rails', '~> 4.0.3'
@@ -25,8 +25,11 @@ gem 'active_model_serializers'
 group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'debugger'
   gem 'database_cleaner'
   gem 'capybara'
   gem 'poltergeist'
+end
+
+group :debug do
+  gem 'debugger'
 end

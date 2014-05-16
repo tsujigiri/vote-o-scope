@@ -1,4 +1,4 @@
-# Vote-o-Scope
+# Vote-o-Scope [![Build Status](https://travis-ci.org/tsujigiri/vote-o-scope.svg?branch=master)](https://travis-ci.org/tsujigiri/vote-o-scope)
 
 Elevator pitch: It's a match-making machine for elections!
 

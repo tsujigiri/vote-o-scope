@@ -23,7 +23,7 @@ describe PartiesController do
         get :index, format: :json
         expect(response).to be_success
         expect(JSON.load(response.body)).to eq(
-          [{"id"=>1, "name"=>"ABC", "answers"=>[]}])
+          [{ "id" => party.id, "name" => "ABC", "answers" => [] }])
       end
     end
 

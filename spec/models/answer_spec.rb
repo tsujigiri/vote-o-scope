@@ -35,7 +35,7 @@ describe Answer do
       FactoryGirl.create(:answer, question: question1, party: party1)
       FactoryGirl.create(:answer, question: question2, party: party2)
       expect(Answer.missing.map {|a| [a.party_id, a.question_id] }).to match_array(
-        [[1,2], [2,1]]
+        [[party1.id,question2.id], [party2.id,question1.id]]
       )
     end
   end
