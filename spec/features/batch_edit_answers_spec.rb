@@ -23,7 +23,7 @@ feature 'batch-edit answers' do
     fill_in(by_id(party1, question1, 'reasoning'), with: 'Because!')
     fill_in(by_id(party1, question2, 'reasoning'), with: 'We just don\'t care.')
     expect {
-      click_on('Submit')
+      first('input[name="commit"]').click
     }.to change(Answer, :count).by(3)
     expect(answer(party1, question1).answer).to eq(:agree)
     expect(answer(party1, question1).reasoning).to eq('Because!')

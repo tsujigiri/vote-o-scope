@@ -32,7 +32,7 @@
 }
 
 #modal-close {
-  background: #fff url('../images/jsmodal/modal-close.png') no-repeat center center;
+  background: #fff url(asset-path('jsmodal/modal-close.png')) no-repeat center center;
   cursor: pointer;
   display: block;
   filter: alpha(opacity=60);

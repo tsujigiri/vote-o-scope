@@ -17,6 +17,10 @@ class AnswersController < ApplicationController
     end
   end
 
+  def show
+    respond_with(@answer, layout: false)
+  end
+
   def update
     answers_params.keys.each do |key|
       _, party_id, _, question_id = key.split('_')

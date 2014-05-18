@@ -1,4 +1,5 @@
 /*
- *= require_tree ./buergerrechte-waehlen.de
+ *= require ./common
  *= require jsmodal/jsmodal-light.css
+ *= require_tree ./buergerrechte-waehlen.de
  */

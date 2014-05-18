@@ -19,7 +19,7 @@ module AnswersHelper
     else
       html_class << 'reasoning-absent'
     end
-    link_to("reasoning", '#', class: html_class)
+    link_to(Answer.human_attribute_name(:reasoning), '#', class: html_class)
   end
 
   def answer_radio_button(party, question, answer, existing_answer)

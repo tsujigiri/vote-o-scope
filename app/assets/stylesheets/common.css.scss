@@ -1,0 +1,22 @@
+.hidden {
+  display: none;
+}
+
+table th {
+  text-align: center;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+table#answers td {
+  text-align: center;
+
+  td.party-name {
+    text-align: left;
+    font-weight: bold;
+  }
+
+  td:first-child {
+    text-align: right;
+  }
+}

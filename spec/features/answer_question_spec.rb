@@ -26,21 +26,20 @@ describe 'answering a question' do
   it 'loads the next one', js: true do
     visit answer_questions_path(question1)
     expect(page).to have_content(question1.short)
-    click_link 'agree'
+    find('a[data-answer="agree"]').click
     expect(page).to have_content(question2.short)
-    click_link 'disagree'
+    find('a[data-answer="disagree"]').click
     expect(page).to have_content(question3.short)
-    click_link 'neutral'
+    find('a[data-answer="neutral"]').click
     expect(page).to have_table 'vote-o-scope-top-list'
     expect(page).to have_table 'vote-o-scope-detailed-results'
     html = Nokogiri::HTML.parse(page.body)
-    expect(html.css('table').size).to eq(2)
-    top_list = html.css('table').first
+    top_list = html.css('table#vote-o-scope-top-list').first
     table = top_list.css('tr').map {|tr| tr.css('td').map(&:text) }
     expect(table).to eq(
       [
-        ['ABC', '100 %'],
-        ['XYZ', '33 %'],
+        ['ABC', '', '100 %'],
+        ['XYZ', '', '33 %'],
       ]
     )
   end

@@ -1,4 +1,8 @@
 de:
+  activerecord:
+    attributes:
+      answer:
+        reasoning: 'Argumentation'
   answers:
     answers:
       agree: 'stimme zu'
@@ -27,3 +31,4 @@ de:
   results:
     consensus: 'Übereinstimmung'
     details: 'Detailliertes Ergebnis'
+  submit: 'Speichern'
